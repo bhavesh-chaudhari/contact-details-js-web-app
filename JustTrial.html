@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Contact Details</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Directory</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container my-4">
+    <h2 class="text-center">Submit Details</h2>
+    <form>
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3 mx-4">
+          <label for="validationServer01">First name</label>
+          <input type="text" name="onlyalphabet"
+            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+            class="form-control is-valid " placeholder="Alphabets Only" id="firstname">
+
+
+        </div>
+        <div class="col-md-6 mb-3 mx-4">
+          <label for="validationServer02">Last name</label>
+          <input type="text" name="onlyalphabet"
+            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+            class="form-control is-valid" placeholder="Alphabets Only" id="lastname">
+        </div>
+      </div>
+      <div class="col-md-6 mx-2 ">
+        <label for="Number">Contact Number : +91-</label>
+
+        <input type="text" id="contact" maxlength="10" placeholder="Numericals only" onkeypress="isInputNumber(event)">
+        <script>
+          function isInputNumber(evt) {
+            console.log(evt.which, typeof (evt.which))
+            var ch = String.fromCharCode(evt.which);
+            if (!(/[0-9]/.test(ch))) {
+              evt.preventDefault();
+            }
+          }
+        </script>
+
+      </div>
+
+
+
+
+      <div class="form-row mx-3 my-3">
+
+        <div class="col-md-6 mb-3">
+          <label for="validationServer01">Email address</label>
+          <input type="email" class="form-control" id="exampleEmail" placeholder="xyz@email.com"
+            onblur="validateEmail(this);" />
+          <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="xyz@email.com"
+            aria-describedby="emailHelp"> -->
+          <script>
+            function validateEmail(emailField) {
+              var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+              if (reg.test(emailField.value) == false) {
+                alert("1.You have entered invalid Email Address,\n2.Please enter a valid Email and \n press 'Tab' to enable Submit button.");
+                const add = document.getElementById("add");
+                add.disabled = true
+
+                return false;
+
+
+              }
+              add.disabled = false
+              return true;
+
+            }
+
+
+
+
+          </script>
+
+          <small id="emailHelp" class="form-text text-muted my-2-bg">We'll never share your email & contact number with
+            anyone else.</small>
+        </div>
+
+      </div>
+
+      <div>
+
+        <button type="button" class="btn btn-success mx-4 " id="add">Submit</button>
+
+      </div>
+
+    </form>
+    <h2 class="text-center my-3">Print From Here</h2>
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">Sr. No</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Contact Number</th>
+          <th scope="col">Email address</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <th scope="row">1</th>
+          <td>Bhavesh</th>
+          <td>Chaudhari</td>
+          <td>97979*****</td>
+          <td>Bhavesh********@gmail.com</td>
+          <td><button class="btn btn-sm btn-primary">Delete</butt>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+  </div>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+
+  <script>
+    function populateTable() {
+      itemJsonArrayStr = localStorage.getItem("itemsJson")
+      if (itemJsonArrayStr == null) {
+        itemJsonArray = []
+      }
+      else {
+        itemJsonArray = JSON.parse(itemJsonArrayStr)
+      }
+
+      let tableBody = document.getElementById("tableBody");
+      let str = "";
+      itemJsonArray.forEach((element, index) => {
+        str += `
+                    <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td>
+                    <td>${element[2]}</td>
+                    <td>${element[3]}</td>
+                    <td><button class="btn btn-sm btn-primary" onclick = "deleted(${index})" >Delete</butt>
+          </td>
+                    </tr>
+          `
+      })
+      tableBody.innerHTML = str;
+    }
+    function deleted(itemIndex) {
+      console.log("Delete", itemIndex);
+      itemJsonArrayStr = localStorage.getItem('itemsJson');
+      itemJsonArray = JSON.parse(itemJsonArrayStr);
+      // Delete itemIndex element from the aaray
+      itemJsonArray.splice(itemIndex, 1);
+      localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+      populateTable();
+    }
+    function update() {
+      console.log("Updating List...");
+      firstname = document.getElementById("firstname").value;
+      lastname = document.getElementById("lastname").value;
+      contact = document.getElementById("contact").value;
+      Ema = document.getElementById("exampleEmail").value;
+
+
+      if (localStorage.getItem('itemsJson') == null) {
+        itemJsonArray = [];
+
+      }
+      else {
+        itemJsonArrayStr = localStorage.getItem('itemsJson');
+        itemJsonArray = JSON.parse(itemJsonArrayStr);
+
+      }
+      if ((firstname != "") && (lastname != "") && (contact != "") && (Ema != "")) {
+        itemJsonArray.push([firstname, lastname, contact, Ema]);
+      }
+      
+
+      
+
+
+
+
+
+
+      localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+
+
+      // 
+      populateTable();
+
+    }
+    add = document.getElementById("add");
+    add.addEventListener('click', update);
+    update();
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
